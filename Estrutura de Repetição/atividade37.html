@@ -1,0 +1,37 @@
+<script>
+  let alunoMaisAlto = { numero: null, altura: 0 }; 
+let alunoMaisBaixo = { numero: null, altura: Infinity }; 
+
+for (let i = 1; i <= 10; i++) {
+    
+    let numero = parseInt(prompt(`Digite o número do aluno ${i}:`));
+
+    
+    let altura = parseFloat(prompt(`Digite a altura do aluno ${i} (em metros, ex: 1,80):`).replace(",", "."));
+
+    
+    if (isNaN(numero) || isNaN(altura) || altura <= 0) {
+        alert("Dados inválidos. Tente novamente.");
+        i--; 
+        continue;
+    }
+
+   
+    if (altura > alunoMaisAlto.altura) {
+        alunoMaisAlto = { numero, altura };
+    }
+
+    
+    if (altura < alunoMaisBaixo.altura) {
+        alunoMaisBaixo = { numero, altura };
+    }
+}
+
+
+alert(
+    `Aluno mais alto:\nNúmero: ${alunoMaisAlto.numero}\nAltura: ${alunoMaisAlto.altura.toFixed(2).replace(".", ",")} metros\n\n` +
+    `Aluno mais baixo:\nNúmero: ${alunoMaisBaixo.numero}\nAltura: ${alunoMaisBaixo.altura.toFixed(2).replace(".", ",")} metros`
+);
+
+
+</script>

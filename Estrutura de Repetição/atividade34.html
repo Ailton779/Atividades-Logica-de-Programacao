@@ -1,0 +1,35 @@
+<script>
+
+let grupos = [];
+
+
+for (let i = 0; i < 5; i++) {
+    let grupo = [];
+    for (let j = 0; j < 4; j++) {
+        let valor = parseInt(prompt(`Digite o valor ${j + 1} do grupo ${i + 1}:`));
+        grupo.push(valor);
+    }
+    grupos.push(grupo);
+}
+
+
+alert("Grupos na ordem lida:");
+grupos.forEach((grupo, index) => {
+    alert(`Grupo ${index + 1}: ${grupo.join(", ")}`);
+});
+
+
+alert("Grupos em ordem crescente:");
+grupos.forEach((grupo, index) => {
+    let grupoCrescente = [...grupo].sort((a, b) => a - b);
+    alert(`Grupo ${index + 1} (Crescente): ${grupoCrescente.join(", ")}`);
+});
+
+
+alert("Grupos em ordem decrescente:");
+grupos.forEach((grupo, index) => {
+    let grupoDecrescente = [...grupo].sort((a, b) => b - a);
+    alert(`Grupo ${index + 1} (Decrescente): ${grupoDecrescente.join(", ")}`);
+});
+
+</script>

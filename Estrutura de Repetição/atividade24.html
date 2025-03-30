@@ -1,0 +1,21 @@
+<script>
+
+let soma = 0;
+let quantidadePares = 0;
+
+
+for (let i = 1; i <= 10; i++) {
+    let numero = parseInt(prompt(`Digite o número ${i}:`));
+
+    
+    soma += numero;
+
+    
+    if (numero % 2 === 0) {
+        quantidadePares++;
+    }
+}
+
+
+alert(`Soma: ${soma}\nQuantidade de pares: ${quantidadePares}`);
+</script>

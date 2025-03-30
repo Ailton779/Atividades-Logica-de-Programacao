@@ -1,0 +1,41 @@
+<script>
+    let opcao;
+
+do {
+    
+    opcao = parseInt(prompt(
+        "MENU INTERATIVO\n" +
+        "1. Exibir uma mensagem\n" +
+        "2. Realizar um cálculo\n" +
+        "3. Mostrar a data atual\n" +
+        "0. Sair\n\n" +
+        "Escolha uma opção:"
+    ));
+
+    
+    switch (opcao) {
+        case 1:
+            alert("Você escolheu: Exibir uma mensagem.\nOlá, bem-vindo ao menu interativo!");
+            break;
+
+        case 2:
+            const num1 = parseFloat(prompt("Digite o primeiro número:"));
+            const num2 = parseFloat(prompt("Digite o segundo número:"));
+            alert(`A soma de ${num1} e ${num2} é: ${num1 + num2}`);
+            break;
+
+        case 3:
+            const dataAtual = new Date();
+            alert(`A data e hora atual é: ${dataAtual.toLocaleString()}`);
+            break;
+
+        case 0:
+            alert("Você escolheu sair. Até a próxima!");
+            break;
+
+        default:
+            alert("Opção inválida. Por favor, escolha uma opção válida.");
+    }
+} while (opcao !== 0); 
+
+</script>

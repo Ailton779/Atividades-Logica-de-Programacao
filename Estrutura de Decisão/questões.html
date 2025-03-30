@@ -1,0 +1,232 @@
+<script>
+    // 1 - Verifica idade
+function verificarIdade(idade) {
+    return idade >= 18 ? "maior de idade" : "menor de idade";
+}
+
+// 2 - Média ponderada
+function calcularMediaPonderada(n1, n2, n3) {
+    let media = (n1 * 2 + n2 * 3 + n3 * 5) / 10;
+    if (media >= 8) return "A";
+    if (media >= 7) return "B";
+    if (media >= 6) return "C";
+    if (media >= 5) return "D";
+    return "E";
+}
+
+// 3 - Média aritmética
+function mediaAritmetica(n1, n2, n3) {
+    let media = (n1 + n2 + n3) / 3;
+    if (media >= 7) return "APROVADO";
+    if (media >= 3) return `EXAME - Nota necessária: ${6 - media}`;
+    return "REPROVADO";
+}
+
+// 4 - Aprovação com exame final
+function situacaoFinal(n1, n2, exame) {
+    let media = (n1 + n2) / 2;
+    if (media >= 70) return "Aprovado";
+    if (media >= 40) return exame + media >= 100 ? "Aprovado no exame" : "Reprovado no exame";
+    return "Reprovado";
+}
+
+// 5 - Multa por excesso de velocidade
+function calcularMulta(velMax, velMotorista) {
+    return velMotorista > velMax ? (velMotorista - velMax) * 5 : "Sem multa";
+}
+
+// 6 - Contagem de cédulas
+function contarCedulas(valor) {
+    let cedulas = [100, 50, 20, 10, 5, 2, 1];
+    let resultado = {};
+    cedulas.forEach(ced => {
+        resultado[ced] = Math.floor(valor / ced);
+        valor %= ced;
+    });
+    return resultado;
+}
+
+// 7 - Cálculo do salário semanal
+function calcularSalario(horas, valorHora) {
+    let extra = 0;
+    if (horas > 40) extra = (Math.min(horas, 60) - 40) * (valorHora * 0.5);
+    if (horas > 60) extra += (horas - 60) * valorHora;
+    return horas * valorHora + extra;
+}
+
+// 8 - Verificar tipo de triângulo
+function tipoTriangulo(a, b, c) {
+    if (a + b <= c || a + c <= b || b + c <= a) return "Não é um triângulo";
+    if (a === b && b === c) return "Equilátero";
+    if (a === b || a === c || b === c) return "Isósceles";
+    return "Escaleno";
+}
+
+// 9 - Ordem crescente
+function ordenarNumeros(a, b, c) {
+    return [a, b, c].sort((x, y) => x - y);
+}
+
+// 10 - Menu de operações matemáticas
+function operacoes(opcao, a, b) {
+    switch (opcao) {
+        case "soma": return a + b;
+        case "multiplicacao": return a * b;
+        case "exponencial": return a ** b;
+        default: return "Opção inválida";
+    }
+}
+
+// 11 - Aumento salarial
+function calcularAumento(codigo, salario) {
+    let aumentos = { 1: 1.5, 2: 1.35, 3: 1.2, 4: 1.1, 5: 1 };
+    return salario * (aumentos[codigo] || 1);
+}
+
+// 12 - Novo salário com bonificação
+function novoSalario(salario) {
+    let bonificacao = salario <= 500 ? 0.05 : salario <= 1200 ? 0.12 : 0;
+    let auxilio = salario <= 600 ? 150 : 100;
+    return salario * (1 + bonificacao) + auxilio;
+}
+
+// 13 - Dia da semana
+function diaSemana(numero) {
+    let dias = ["Inválido", "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+    return dias[numero] || "Inválido";
+}
+
+// 14 - Trimestre do ano
+function trimestre(mes) {
+    if (mes >= 1 && mes <= 3) return "1º trimestre";
+    if (mes >= 4 && mes <= 6) return "2º trimestre";
+    if (mes >= 7 && mes <= 9) return "3º trimestre";
+    if (mes >= 10 && mes <= 12) return "4º trimestre";
+    return "Inválido";
+}
+
+// 15 - Estado civil
+function estadoCivil(letra) {
+    let estados = { C: "Casado(a)", S: "Solteiro(a)", V: "Viúvo(a)", D: "Divorciado(a)", X: "Inválido" };
+    return estados[letra.toUpperCase()] || "Inválido";
+}
+
+// 16 - Categoria da carteira de motorista
+function categoriaCNH(cat) {
+    let categorias = { A: "Moto", B: "Carro", C: "Caminhão", D: "Ônibus", E: "Caminhão com reboque" };
+    return categorias[cat.toUpperCase()] || "Inválida";
+}
+
+// 17 - Número por extenso
+function numeroExtenso(n) {
+    let extenso = ["Zero", "Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez"];
+    return extenso[n] || "Não foi possível mostrar seu extenso";
+}
+
+// 18 - Calculadora básica
+function calculadora(op, a, b) {
+    return operacoes(op, a, b);
+}
+
+// 19 - Aprovação de empréstimo
+function aprovarEmprestimo(valor, parcelas, salario) {
+    return valor / parcelas <= salario * 0.3 ? "Aprovado" : "Negado";
+}
+
+// 20 - Classificação de produto
+function classificarProduto(codigo) {
+    if (codigo === 1) return "Alimento não-perecível";
+    if (codigo >= 2 && codigo <= 4) return "Alimento perecível";
+    if (codigo === 5 || codigo === 6) return "Vestuário";
+    if (codigo === 7) return "Higiene pessoal";
+    if (codigo >= 8 && codigo <= 10) return "Utensílios domésticos";
+    return "Inválido";
+}
+
+// 21 - Classificação de produto com switch
+function classificarProdutoSwitch(codigo) {
+    switch (codigo) {
+        case 1: return "Alimento não-perecível";
+        case 2: case 3: case 4: return "Alimento perecível";
+        case 5: case 6: return "Vestuário";
+        case 7: return "Higiene pessoal";
+        case 8: case 9: case 10: return "Utensílios domésticos";
+        default: return "Inválido";
+    }
+}
+
+// 22 - Par ou Ímpar
+function parOuImpar(num) {
+    return num % 2 === 0 ? "Par" : "Ímpar";
+}
+
+// 23 - Média de duas avaliações
+function avaliarNota(n1, n2) {
+    let media = (n1 + n2) / 2;
+    if (media >= 7) return "APROVADO";
+    if (media >= 3) return "EXAME";
+    return "REPROVADO";
+}
+
+// 24 - Média com exame final
+function avaliarComExame(n1, n2, n3) {
+    let media = (n1 + n2 + n3) / 3;
+    if (media >= 7) return "Aprovado";
+    if (media >= 3) {
+        let notaExame = 6 - media;
+        let mediaFinal = (media + notaExame) / 2;
+        return mediaFinal >= 5 ? "Aprovado no exame" : "Reprovado no exame";
+    }
+    return "Reprovado sem direito a exame";
+}
+
+// 25 - Pagamento de produto
+function calcularPagamento(pe, cp) {
+    let descontos = { 1: 0.9, 2: 0.85, 3: 1, 4: 1.1 };
+    return pe * (descontos[cp] || 1);
+}
+
+// 26 - Placar de aposta
+function calcularPontos(aposta1, aposta2, real1, real2) {
+    let pontos = (aposta1 === real1 ? 5 : 0) + (aposta2 === real2 ? 5 : 0);
+    if ((aposta1 > aposta2 && real1 > real2) || (aposta1 < aposta2 && real1 < real2) || (aposta1 === aposta2 && real1 === real2)) {
+        pontos += 10;
+    }
+    return pontos;
+}
+
+// 27 - Cálculo de imposto de renda
+function calcularIR(salario) {
+    if (salario <= 1903.98) return 0;
+    if (salario <= 2826.65) return salario * 0.075 - 142.80;
+    if (salario <= 3751.05) return salario * 0.15 - 354.80;
+    if (salario <= 4664.68) return salario * 0.225 - 636.13;
+    return salario * 0.275 - 869.36;
+}
+
+// 28 - Cálculo de área de polígonos
+function calcularAreaPoligono(lados, tamanho) {
+    switch (lados) {
+        case 3: return (tamanho ** 2 * 1.73) / 4;
+        case 4: return tamanho ** 2;
+        case 6: return (6 * tamanho ** 2 * 1.73) / 4;
+        default: return "Não sei calcular a área";
+    }
+}
+
+// 29 - Cálculo de pagamento semanal
+function calcularPagamentoEmpregado(tipo, valor1, valor2) {
+    switch (tipo) {
+        case 1: return valor1;
+        case 2: return valor1 * Math.min(valor2, 40) + (valor2 > 40 ? (valor2 - 40) * valor1 * 1.5 : 0);
+        case 3: return 250 + valor1 * 0.057;
+        case 4: return valor1 * valor2;
+        default: return "Código inválido";
+    }
+}
+
+// 30 - Regra do impedimento
+function verificarImpedimento(L, R, D) {
+    return (R > 50 && L < R && R > D) ? "S" : "N";
+}
+</script>

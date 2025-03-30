@@ -1,0 +1,41 @@
+<script>
+    
+const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+let tentativas = 7;
+let acerto = false;
+
+while (tentativas > 0) {
+    
+    let tentativaUsuario = parseInt(prompt(`Tente adivinhar o número (1-100):`));
+    
+    
+    if (isNaN(tentativaUsuario) || tentativaUsuario < 1 || tentativaUsuario > 100) {
+        alert("Por favor, insira um número válido entre 1 e 100.");
+        continue;
+    }
+
+    
+    if (tentativaUsuario === numeroAleatorio) {
+        acerto = true;
+        break; 
+    } else if (tentativaUsuario > numeroAleatorio) {
+        alert("O número é menor.");
+    } else {
+        alert("O número é maior.");
+    }
+
+    tentativas--; 
+
+    
+    if (tentativas > 0) {
+        alert(`Você tem ${tentativas} tentativas restantes. Tente novamente.`);
+    }
+}
+
+if (acerto) {
+    alert("Parabéns! Você acertou.");
+} else {
+    alert(`Você não acertou. O número era ${numeroAleatorio}.`);
+}
+
+</script>

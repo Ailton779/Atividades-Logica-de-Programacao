@@ -1,0 +1,44 @@
+<script>
+    let soma = 0;
+let quantidadePositivos = 0;
+let quantidadeNegativos = 0;
+let quantidadeTotal = 0;
+
+let continuar = true;
+
+while (continuar) {
+    
+    let numero = parseFloat(prompt("Digite um número (ou 0 para encerrar):"));
+    
+    
+    if (numero === 0) {
+        continuar = false;
+    } else {
+        
+        soma += numero;
+        quantidadeTotal++;
+
+        
+        if (numero > 0) {
+            quantidadePositivos++;
+        } else {
+            quantidadeNegativos++;
+        }
+    }
+}
+
+
+let media = soma / quantidadeTotal;
+
+
+let percentualPositivos = (quantidadePositivos / quantidadeTotal) * 100;
+let percentualNegativos = (quantidadeNegativos / quantidadeTotal) * 100;
+
+
+alert(`Média dos valores: ${media.toFixed(2)}`);
+alert(`Quantidade de valores positivos: ${quantidadePositivos}`);
+alert(`Quantidade de valores negativos: ${quantidadeNegativos}`);
+alert(`Percentual de valores positivos: ${percentualPositivos.toFixed(2)}%`);
+alert(`Percentual de valores negativos: ${percentualNegativos.toFixed(2)}%`);
+
+</script>

@@ -1,0 +1,269 @@
+<script>
+    // 1. Alô mundo
+alert('Alô mundo');
+
+// 2. Soma de dois números
+let num1 = parseInt(prompt('Digite o primeiro número:'));
+let num2 = parseInt(prompt('Digite o segundo número:'));
+alert('Soma: ' + (num1 + num2));
+
+// 3. Subtração de dois números
+alert('Subtração: ' + (num1 - num2));
+
+// 4. Multiplicação de dois números reais
+let num3 = parseFloat(prompt('Digite um número real:'));
+let num4 = parseFloat(prompt('Digite outro número real:'));
+alert('Multiplicação: ' + (num3 * num4));
+
+// 5. Divisão de dois números (com verificação de zero)
+let num5 = parseFloat(prompt('Digite o dividendo:'));
+let num6 = parseFloat(prompt('Digite o divisor:'));
+if (num6 === 0) {
+    alert('Não é possível dividir por zero!');
+} else {
+    alert('Divisão: ' + (num5 / num6));
+}
+
+// 6. Soma de 4 números inteiros
+let soma = 0;
+for (let i = 0; i < 4; i++) {
+    soma += parseInt(prompt(`Digite o ${i + 1}º número:`));
+}
+alert('Soma total: ' + soma);
+
+// 7. Média aritmética de três notas
+let nota1 = parseFloat(prompt('Digite a primeira nota:'));
+let nota2 = parseFloat(prompt('Digite a segunda nota:'));
+let nota3 = parseFloat(prompt('Digite a terceira nota:'));
+alert('Média: ' + ((nota1 + nota2 + nota3) / 3));
+
+// 8. Média aritmética entre duas notas
+let notaA = parseFloat(prompt('Digite a primeira nota:'));
+let notaB = parseFloat(prompt('Digite a segunda nota:'));
+alert('Média: ' + ((notaA + notaB) / 2));
+
+// 9. Salário com aumento de 25%
+let salario = parseFloat(prompt('Digite o salário atual:'));
+alert('Novo salário: ' + (salario * 1.25));
+
+// 10. Salário com aumento personalizado
+let percentual = parseFloat(prompt('Digite o percentual de aumento:'));
+alert('Novo salário: ' + (salario * (1 + percentual / 100)));
+
+// 11. Salário com gratificação e imposto
+let salarioBase = parseFloat(prompt('Digite o salário base:'));
+let salarioReceber = salarioBase * 1.05 - salarioBase * 0.07;
+alert('Salário a receber: ' + salarioReceber);
+
+// 12. Salário com gratificação fixa e imposto
+salarioReceber = salarioBase + 50 - salarioBase * 0.10;
+alert('Salário a receber: ' + salarioReceber);
+
+// 13. Área do triângulo
+let base = parseFloat(prompt('Digite a base do triângulo:'));
+let altura = parseFloat(prompt('Digite a altura do triângulo:'));
+alert('Área: ' + (base * altura / 2));
+
+// 14. Área do círculo
+let raio = parseFloat(prompt('Digite o raio do círculo:'));
+alert('Área: ' + (Math.PI * Math.pow(raio, 2)));
+
+// 15. Potenciação e raízes
+let numero = parseFloat(prompt('Digite um número positivo:'));
+alert(`Ao quadrado: ${Math.pow(numero, 2)}\nAo cubo: ${Math.pow(numero, 3)}\nRaiz quadrada: ${Math.sqrt(numero)}\nRaiz cúbica: ${Math.cbrt(numero)}`);
+
+// 16. Elevar um número ao outro
+let baseNum = parseFloat(prompt('Digite a base:'));
+let expoente = parseFloat(prompt('Digite o expoente:'));
+alert('Resultado: ' + Math.pow(baseNum, expoente));
+
+// 17. Idade atual e em 2050
+let anoNascimento = parseInt(prompt('Digite o ano de nascimento:'));
+let anoAtual = new Date().getFullYear();
+alert(`Idade: ${anoAtual - anoNascimento}\nIdade em 2050: ${2050 - anoNascimento}`);
+
+// 18. Preço com desconto de 10%
+let preco = parseFloat(prompt('Digite o preço do produto:'));
+alert('Novo preço: ' + (preco * 0.9));
+
+// 19. Área do trapézio
+let baseMaior = parseFloat(prompt('Digite a base maior:'));
+let baseMenor = parseFloat(prompt('Digite a base menor:'));
+altura = parseFloat(prompt('Digite a altura:'));
+alert('Área do trapézio: ' + ((baseMaior + baseMenor) * altura / 2));
+
+// 20. Área e perímetro do retângulo
+let largura = parseFloat(prompt('Digite a largura:'));
+let comprimento = parseFloat(prompt('Digite o comprimento:'));
+alert(`Área: ${largura * comprimento}\nPerímetro: ${2 * (largura + comprimento)}`);
+
+// 21. Área e perímetro do quadrado
+let lado = parseFloat(prompt('Digite o lado do quadrado:'));
+alert(`Área: ${lado * lado}\nPerímetro: ${4 * lado}`);
+
+// 22. Área e perímetro da circunferência
+alert(`Área: ${Math.PI * Math.pow(raio, 2)}\nPerímetro: ${2 * Math.PI * raio}`);
+
+// 23. Perímetro do triângulo
+let lado1 = parseFloat(prompt('Digite o primeiro lado:'));
+let lado2 = parseFloat(prompt('Digite o segundo lado:'));
+let lado3 = parseFloat(prompt('Digite o terceiro lado:'));
+alert('Perímetro: ' + (lado1 + lado2 + lado3));
+
+// 24. Sucessor de um número
+let num = parseInt(prompt('Digite um número inteiro:'));
+alert('Sucessor: ' + (num + 1));
+
+// 25. Quociente e resto da divisão inteira
+num1 = parseInt(prompt('Digite o primeiro número:'));
+num2 = parseInt(prompt('Digite o segundo número:'));
+alert(`Quociente: ${Math.floor(num1 / num2)}\nResto: ${num1 % num2}`);
+
+// 26. Idade em anos, meses e dias
+let idadeDias = parseInt(prompt('Digite sua idade em dias:'));
+let anos = Math.floor(idadeDias / 365);
+let meses = Math.floor((idadeDias % 365) / 30);
+let dias = (idadeDias % 365) % 30;
+alert(`Idade: ${anos} anos, ${meses} meses e ${dias} dias`);
+
+// 27. Converter Fahrenheit para Celsius
+let fahrenheit = parseFloat(prompt('Digite a temperatura em Fahrenheit:'));
+alert('Temperatura em Celsius: ' + (5 / 9 * (fahrenheit - 32)));
+
+// 28. Volume da lata de óleo
+raio = parseFloat(prompt('Digite o raio da lata:'));
+altura = parseFloat(prompt('Digite a altura da lata:'));
+alert('Volume: ' + (Math.PI * Math.pow(raio, 2) * altura));
+
+// 29. Converter um inteiro menor que 32 para binário
+let numeroBinario = parseInt(prompt('Digite um número menor que 32:'));
+alert('Em binário: ' + numeroBinario.toString(2));
+
+// 30. Nota semestral
+let n1 = parseFloat(prompt('Digite a primeira nota do primeiro bimestre:'));
+let n2 = parseFloat(prompt('Digite a segunda nota do primeiro bimestre:'));
+let n3 = parseFloat(prompt('Digite a primeira nota do segundo bimestre:'));
+let n4 = parseFloat(prompt('Digite a segunda nota do segundo bimestre:'));
+alert('Nota semestral: ' + ((n1 + n2 + n3 + n4) / 4));
+
+// 31. Converter m/s para km/h
+let velocidade = parseFloat(prompt('Digite a velocidade em m/s:'));
+alert('Velocidade em km/h: ' + (velocidade * 3.6));
+
+// 32. Resistência equivalente
+let R1 = parseFloat(prompt('Digite R1:'));
+let R2 = parseFloat(prompt('Digite R2:'));
+let R3 = parseFloat(prompt('Digite R3:'));
+let Req = (R1 * R2) / (R1 + R2) + R3;
+alert('Resistência equivalente: ' + Req);
+
+// 33. Tempo de abertura do semáforo
+let distancia = parseFloat(prompt('Digite a distância (m):'));
+let velocidadePermitida = parseFloat(prompt('Digite a velocidade (m/s):'));
+let aceleracao = parseFloat(prompt('Digite a aceleração (m/s²):'));
+let tempo = (velocidadePermitida / aceleracao) + (distancia / velocidadePermitida) - 3;
+alert('O próximo semáforo deve abrir após ' + tempo + ' segundos');
+
+// 34. Cálculo da altura do prédio
+let sombraPessoa = parseFloat(prompt('Digite o tamanho da sua sombra (m):'));
+let alturaPessoa = parseFloat(prompt('Digite a sua altura (m):'));
+let sombraPredio = parseFloat(prompt('Digite o tamanho da sombra do prédio (m):'));
+let alturaPredio = (alturaPessoa * sombraPredio) / sombraPessoa;
+alert('Altura do prédio: ' + alturaPredio + 'm');
+
+// 35. Inverter um número de três dígitos
+let numero = prompt('Digite um número de três dígitos:');
+alert('Número invertido: ' + numero.split('').reverse().join(''));
+
+// 36. Caixa eletrônico (distribuição ótima de notas)
+let valor = parseInt(prompt('Digite o valor do saque:'));
+let notas = [100, 50, 20, 10, 5, 2, 1];
+let distribuicao = '';
+notas.forEach(nota => {
+    let qtd = Math.floor(valor / nota);
+    valor %= nota;
+    if (qtd > 0) distribuicao += `${qtd} nota(s) de R$${nota}\n`;
+});
+alert(distribuicao);
+
+// 37. Permutar dois valores
+let a = prompt('Digite o primeiro valor:');
+let b = prompt('Digite o segundo valor:');
+[a, b] = [b, a];
+alert(`Valores invertidos:\nA: ${a}\nB: ${b}`);
+
+// 38. Entrada e prestações
+let valorMercadoria = parseFloat(prompt('Digite o valor da mercadoria:'));
+let entrada = valorMercadoria % 2 + Math.floor(valorMercadoria / 3);
+let prestacao = Math.floor((valorMercadoria - entrada) / 2);
+alert(`Entrada: R$${entrada}\nDuas prestações de R$${prestacao}`);
+
+// 39. Verificar se o número é positivo ou negativo
+let num = parseFloat(prompt('Digite um número:'));
+alert(num >= 0 ? 'Número positivo' : 'Número negativo');
+
+// 40. Exibir módulo de um número
+num = parseFloat(prompt('Digite um número:'));
+alert('Módulo: ' + Math.abs(num));
+
+// 41. Verificar se um número é par
+num = parseInt(prompt('Digite um número inteiro:'));
+alert(num % 2 === 0 ? 'Número par' : 'Número ímpar');
+
+// 42. Maior entre três números
+let n1 = parseFloat(prompt('Digite o primeiro número:'));
+let n2 = parseFloat(prompt('Digite o segundo número:'));
+let n3 = parseFloat(prompt('Digite o terceiro número:'));
+alert('Maior número: ' + Math.max(n1, n2, n3));
+
+// 43. Dias do mês
+let mes = parseInt(prompt('Digite o número do mês (1-12):'));
+let dias = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+alert(`O mês tem ${dias[mes - 1]} dias`);
+
+// 44. Soma dos dois maiores números
+let numeros = [
+    parseFloat(prompt('Digite o primeiro número:')),
+    parseFloat(prompt('Digite o segundo número:')),
+    parseFloat(prompt('Digite o terceiro número:'))
+];
+numeros.sort((a, b) => b - a);
+alert('Soma dos dois maiores: ' + (numeros[0] + numeros[1]));
+
+// 45. Média ponderada de três números
+let pesos = [5, 2.5, 2.5];
+let somaPesos = pesos.reduce((a, b) => a + b, 0);
+let media = (numeros[0] * pesos[0] + numeros[1] * pesos[1] + numeros[2] * pesos[2]) / somaPesos;
+alert('Média ponderada: ' + media);
+
+// 46. Verificar se a letra é vogal ou consoante
+let letra = prompt('Digite uma letra:').toLowerCase();
+alert(['a', 'e', 'i', 'o', 'u'].includes(letra) ? 'Vogal' : 'Consoante');
+
+// 47. Cálculo do desconto previdenciário
+let salario = parseFloat(prompt('Digite o salário:'));
+let desconto = Math.min(salario * 0.11, 334.29);
+alert('Desconto previdenciário: R$' + desconto.toFixed(2));
+
+// 48. Cálculo do valor de combustível
+let litros = parseFloat(prompt('Digite a quantidade de litros vendidos:'));
+let tipo = prompt('Digite o tipo de combustível (A-álcool, G-gasolina):').toUpperCase();
+let preco = tipo === 'A' ? 1.90 : 2.70;
+let descontoComb = litros <= 20 ? (tipo === 'A' ? 0.03 : 0.04) : (tipo === 'A' ? 0.05 : 0.06);
+alert('Total a pagar: R$' + (litros * preco * (1 - descontoComb)).toFixed(2));
+
+// 49. Soma de uma PA
+let razao = parseInt(prompt('Digite a razão da PA:'));
+let primeiroTermo = parseInt(prompt('Digite o primeiro termo:'));
+let ultimoTermo = parseInt(prompt('Digite o último termo:'));
+let n = (ultimoTermo - primeiroTermo) / razao + 1;
+alert('Soma dos termos da PA: ' + ((n / 2) * (primeiroTermo + ultimoTermo)));
+
+// 50. Soma dos elementos de uma PA
+let razaoPA = parseInt(prompt('Digite a razão da PA:'));
+let primeiroPA = parseInt(prompt('Digite o primeiro termo da PA:'));
+let ultimoPA = parseInt(prompt('Digite o último termo da PA:'));
+let nPA = ((ultimoPA - primeiroPA) / razaoPA) + 1;
+let somaPA = (nPA / 2) * (primeiroPA + ultimoPA);
+alert('Soma dos elementos da PA: ' + somaPA);
+</script>

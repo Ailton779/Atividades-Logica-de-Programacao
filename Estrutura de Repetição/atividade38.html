@@ -1,0 +1,66 @@
+<script>
+    
+    let cidades = [];
+let totalVeiculos = 0;
+let totalAcidentesEmCidadesMenos2000 = 0;
+let cidadesMenos2000 = 0;
+let maiorIndice = { codigo: null, acidentes: -Infinity };
+let menorIndice = { codigo: null, acidentes: Infinity };
+
+
+for (let i = 1; i <= 5; i++) {
+    
+    let codigo = parseInt(prompt(`Digite o código da cidade ${i}:`));
+
+    
+    let veiculos = parseInt(prompt(`Digite o número de veículos de passeio na cidade ${codigo} (em 1999):`));
+
+    
+    let acidentes = parseInt(prompt(`Digite o número de acidentes de trânsito com vítimas na cidade ${codigo} (em 1999):`));
+
+    
+    if (isNaN(codigo) || isNaN(veiculos) || isNaN(acidentes) || veiculos < 0 || acidentes < 0) {
+        alert("Dados inválidos. Tente novamente.");
+        i--; 
+        continue;
+    }
+
+    
+    cidades.push({ codigo, veiculos, acidentes });
+
+    
+    totalVeiculos += veiculos;
+
+    
+    if (acidentes > maiorIndice.acidentes) {
+        maiorIndice = { codigo, acidentes };
+    }
+    if (acidentes < menorIndice.acidentes) {
+        menorIndice = { codigo, acidentes };
+    }
+
+    
+    if (veiculos < 2000) {
+        totalAcidentesEmCidadesMenos2000 += acidentes;
+        cidadesMenos2000++;
+    }
+}
+
+
+let mediaVeiculos = totalVeiculos / 5;
+let mediaAcidentesMenos2000 = cidadesMenos2000 > 0 
+    ? totalAcidentesEmCidadesMenos2000 / cidadesMenos2000 
+    : 0;
+
+
+alert(
+    `Resultados:\n\n` +
+    `Cidade com o maior índice de acidentes:\n` +
+    `Código: ${maiorIndice.codigo}, Acidentes: ${maiorIndice.acidentes}\n\n` +
+    `Cidade com o menor índice de acidentes:\n` +
+    `Código: ${menorIndice.codigo}, Acidentes: ${menorIndice.acidentes}\n\n` +
+    `Média de veículos de passeio entre as cidades: ${mediaVeiculos.toFixed(2)}\n` +
+    `Média de acidentes em cidades com menos de 2000 veículos: ${mediaAcidentesMenos2000.toFixed(2)}`
+);
+
+</script>

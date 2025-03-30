@@ -1,0 +1,26 @@
+<script>
+    
+let idades = [];
+
+while (true) {
+    
+    let idade = parseInt(prompt("Digite uma idade (digite um número negativo para encerrar):"));
+
+    
+    if (isNaN(idade)) {
+        alert("Por favor, insira um número válido.");
+        continue;
+    }
+
+    
+    if (idade < 0) {
+        break;
+    }
+
+    
+    idades.push(idade);
+}
+
+
+alert(`Idades coletadas: ${idades.join(", ")}`);
+</script>

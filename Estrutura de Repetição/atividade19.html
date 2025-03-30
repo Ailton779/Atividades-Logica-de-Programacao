@@ -1,0 +1,68 @@
+<script>
+
+let votosCandidato1 = 0;
+let votosCandidato2 = 0;
+let votosCandidato3 = 0;
+let votosCandidato4 = 0;
+let votosNulos = 0;
+let votosBrancos = 0;
+
+
+while (true) {
+    
+    let voto = parseInt(prompt(`Digite o código do voto:
+1 - Candidato 1
+2 - Candidato 2
+3 - Candidato 3
+4 - Candidato 4
+5 - Voto Nulo
+6 - Voto em Branco
+0 - Encerrar`));
+
+    
+    if (isNaN(voto)) {
+        alert("Por favor, insira um número válido.");
+        continue; 
+    }
+
+    
+    if (voto === 0) {
+        break;
+    }
+
+    
+    switch (voto) {
+        case 1:
+            votosCandidato1++;
+            break;
+        case 2:
+            votosCandidato2++;
+            break;
+        case 3:
+            votosCandidato3++;
+            break;
+        case 4:
+            votosCandidato4++;
+            break;
+        case 5:
+            votosNulos++;
+            break;
+        case 6:
+            votosBrancos++;
+            break;
+        default:
+            
+            alert("Código inválido! Digite um código entre 1 e 6, ou 0 para encerrar.");
+            continue;
+    }
+}
+
+
+alert(`Resultado final da eleição:
+Candidato 1: ${votosCandidato1} votos
+Candidato 2: ${votosCandidato2} votos
+Candidato 3: ${votosCandidato3} votos
+Candidato 4: ${votosCandidato4} votos
+Votos Nulos: ${votosNulos}
+Votos em Branco: ${votosBrancos}`);
+</script>

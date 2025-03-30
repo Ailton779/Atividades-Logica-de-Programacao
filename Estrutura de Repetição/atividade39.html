@@ -1,0 +1,59 @@
+<script>
+
+const NUM_FUNCIONARIOS = 15;
+const MESES = ["Novembro", "Dezembro", "Janeiro"];
+
+
+let funcionarios = [];
+let maiorPontuacaoGeral = { funcionario: null, pontuacao: -Infinity };
+
+
+for (let i = 1; i <= NUM_FUNCIONARIOS; i++) {
+    let pontuacoes = [];
+    alert(`Insira as pontuações do funcionário ${i} para os meses de novembro a janeiro.`);
+
+    
+    for (let mes of MESES) {
+        let pontos = parseInt(prompt(`Digite a pontuação do funcionário ${i} em ${mes}:`));
+        while (isNaN(pontos) || pontos < 0) {
+            alert("Entrada inválida. Digite um número positivo.");
+            pontos = parseInt(prompt(`Digite a pontuação do funcionário ${i} em ${mes}:`));
+        }
+        pontuacoes.push(pontos);
+    }
+
+    
+    let pontuacaoGeral = pontuacoes.reduce((total, pontos) => total + pontos, 0);
+    let mediaPontuacao = pontuacaoGeral / MESES.length;
+
+    
+    if (pontuacaoGeral > maiorPontuacaoGeral.pontuacao) {
+        maiorPontuacaoGeral = { funcionario: i, pontuacao: pontuacaoGeral };
+    }
+
+   
+    funcionarios.push({
+        id: i,
+        pontuacoes,
+        pontuacaoGeral,
+        mediaPontuacao,
+    });
+}
+
+
+let resultado = "Resultados:\n\n";
+
+funcionarios.forEach(({ id, pontuacoes, pontuacaoGeral, mediaPontuacao }) => {
+    resultado += `Funcionário ${id}:\n`;
+    resultado += `Pontuações mensais: ${pontuacoes.join(", ")}\n`;
+    resultado += `Pontuação geral: ${pontuacaoGeral}\n`;
+    resultado += `Média de pontuação: ${mediaPontuacao.toFixed(2)}\n\n`;
+});
+
+resultado += `Funcionário com a maior pontuação geral:\n`;
+resultado += `Funcionário ${maiorPontuacaoGeral.funcionario}, Pontuação: ${maiorPontuacaoGeral.pontuacao}\n`;
+
+
+alert(resultado);
+
+</script>

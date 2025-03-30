@@ -1,0 +1,33 @@
+<script>
+    const capacidadeMaxima = 1000; 
+let totalLeite = 0; 
+
+let continuar = true;
+
+while (continuar) {
+    
+    let leiteEntregue = parseFloat(prompt("Digite a quantidade de leite entregue (em litros):"));
+    
+    
+    if (isNaN(leiteEntregue) || leiteEntregue <= 0) {
+        alert("Por favor, insira uma quantidade válida de leite.");
+        continue;
+    }
+
+    
+    if (totalLeite + leiteEntregue > capacidadeMaxima) {
+        alert("Não é possível adicionar essa quantidade de leite. O tanque está cheio.");
+        continuar = false;
+    } else {
+        
+        totalLeite += leiteEntregue;
+        alert(`Leite adicionado com sucesso! Quantidade total de leite no tanque: ${totalLeite} litros.`);
+    }
+
+    
+    continuar = confirm("Deseja registrar mais entregas de leite?");
+}
+
+alert("Sistema encerrado.");
+
+</script>

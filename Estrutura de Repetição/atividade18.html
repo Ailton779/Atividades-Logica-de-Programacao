@@ -1,0 +1,41 @@
+<script>
+    let totalSalarios = 0;
+let totalFilhos = 0;
+let maiorSalario = -Infinity;
+let salarioAte100 = 0;
+let numeroDePessoas = 0;
+
+while (true) {
+    let salario = parseFloat(prompt("Digite o salário (ou um salário negativo para encerrar):"));
+    
+    if (salario < 0) {
+        break; 
+    }
+    
+    let filhos = parseInt(prompt("Digite o número de filhos:"));
+    
+    
+    totalSalarios += salario;
+    totalFilhos += filhos;
+    numeroDePessoas++;
+
+    if (salario > maiorSalario) {
+        maiorSalario = salario; 
+    }
+
+    if (salario <= 100) {
+        salarioAte100++; 
+    }
+}
+
+
+let mediaSalarios = totalSalarios / numeroDePessoas;
+let mediaFilhos = totalFilhos / numeroDePessoas;
+let percentualAte100 = (salarioAte100 / numeroDePessoas) * 100;
+
+alert(`Média do salário: R$ ${mediaSalarios.toFixed(2)}`);
+alert(`Média do número de filhos: ${mediaFilhos.toFixed(2)}`);
+alert(`Maior salário: R$ ${maiorSalario.toFixed(2)}`);
+alert(`Percentual de pessoas com salário até R$100,00: ${percentualAte100.toFixed(2)}%`);
+
+</script>

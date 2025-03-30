@@ -1,0 +1,31 @@
+<script>
+
+let somaPositivos = 0;
+let quantidadePositivos = 0;
+let quantidadeNegativos = 0;
+
+while (true) {
+    
+    let numero = parseInt(prompt("Digite um número (0 para encerrar):"));
+
+    
+    if (numero === 0) {
+        break;
+    }
+
+   
+    if (numero > 0) {
+        somaPositivos += numero;
+        quantidadePositivos++;
+    } else if (numero < 0) {
+        quantidadeNegativos++;
+    }
+}
+
+
+let mediaPositivos = quantidadePositivos > 0 ? (somaPositivos / quantidadePositivos).toFixed(2) : 0;
+
+
+alert(`Média dos positivos: ${mediaPositivos}\nQuantidade de negativos: ${quantidadeNegativos}`);
+
+</script>

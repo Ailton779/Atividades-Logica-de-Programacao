@@ -1,0 +1,29 @@
+<script>
+
+let a = parseInt(prompt("Digite o número inteiro a:"));
+let b = parseInt(prompt("Digite o número inteiro b:"));
+
+alert(`Números múltiplos de 5 entre ${a} e ${b}:`);
+
+
+for (let i = a; i <= b; i++) {
+    if (i % 5 === 0) {
+        let isPrime = true;
+
+        
+        for (let j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+                isPrime = false;
+                break; 
+            }
+        }
+
+        if (isPrime && i > 1) {
+            alert(`${i} é múltiplo de 5 e é primo.`);
+        } else {
+            alert(`${i} é múltiplo de 5 e não é primo.`);
+        }
+    }
+}
+
+</script>

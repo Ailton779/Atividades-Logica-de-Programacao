@@ -1,0 +1,27 @@
+<script>
+    let soma = 0; 
+let contador = 0; 
+
+while (true) {
+    const valor = parseInt(prompt("Digite um número inteiro positivo (ou um negativo para encerrar):"));
+
+    
+    if (valor < 0) {
+        alert("Valor negativo inserido. Encerrando a leitura.");
+        break; 
+    }
+
+    
+    soma += valor;
+    contador++;
+}
+
+
+if (contador > 0) {
+    const media = soma / contador;
+    alert(`A média aritmética dos ${contador} valores positivos é: ${media.toFixed(2)}`);
+} else {
+    alert("Nenhum valor positivo foi inserido.");
+}
+
+</script>

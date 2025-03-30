@@ -1,0 +1,16 @@
+
+<script>
+let numero;
+
+while (true) {
+    numero = parseInt(prompt("Digite um número (um número negativo para parar):"));
+
+    if (numero < 0) {
+        alert("Você digitou um número negativo. Encerrando o programa.");
+        break; // Sai do loop
+    }
+
+    alert(`Você digitou o número: ${numero}`);
+}
+
+</script>

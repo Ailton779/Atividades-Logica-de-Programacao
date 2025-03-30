@@ -1,0 +1,23 @@
+<script>
+    
+const numeroDeClientes = 15;
+
+
+for (let i = 0; i < numeroDeClientes; i++) {
+    
+    let nomeCliente = prompt(`Digite o nome do cliente ${i + 1}:`);
+    let valorCompras = parseFloat(prompt(`Digite o valor das compras de ${nomeCliente} no ano passado:`));
+
+    
+    let bonus = 0;
+    if (valorCompras < 1000) {
+        bonus = valorCompras * 0.10; 
+    } else {
+        bonus = valorCompras * 0.15; 
+    }
+
+    
+    alert(`Cliente: ${nomeCliente}\nValor das compras: R$ ${valorCompras.toFixed(2)}\nBônus: R$ ${bonus.toFixed(2)}`);
+}
+
+</script>

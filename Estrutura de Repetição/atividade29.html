@@ -1,0 +1,30 @@
+<script>
+    let somaNotas = 0; 
+let quantidadeNotas = 0; 
+let continuar; 
+
+do {
+    
+    let nota = parseFloat(prompt("Digite uma nota (ou cancele para parar):"));
+
+    
+    if (!isNaN(nota)) {
+        somaNotas += nota; 
+        quantidadeNotas++; 
+    } else {
+        alert("Entrada inválida. Por favor, insira um número válido.");
+    }
+
+    
+    continuar = confirm("Deseja adicionar mais notas?");
+} while (continuar);
+
+
+if (quantidadeNotas > 0) {
+    let media = somaNotas / quantidadeNotas;
+    alert(`Média das notas: ${media.toFixed(2)}`);
+} else {
+    alert("Nenhuma nota foi digitada.");
+}
+
+</script>

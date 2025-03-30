@@ -1,0 +1,40 @@
+<script>
+    
+const produtos = [
+    { nome: "Maçã", preco: 2.00 },
+    { nome: "Banana", preco: 1.50 },
+    { nome: "Laranja", preco: 3.00 }
+];
+
+
+let totalCompra = 0;
+let quantidadeItens = 0;
+
+let opcao;
+
+do {
+    
+    let mensagem = "Produtos disponíveis:\n";
+    produtos.forEach((produto, index) => {
+        mensagem += `${index + 1} - ${produto.nome} (R$ ${produto.preco.toFixed(2)})\n`;
+    });
+    mensagem += "Digite o número do produto ou 0 para finalizar:";
+    
+    
+    opcao = parseInt(prompt(mensagem));
+    
+    
+    if (opcao > 0 && opcao <= produtos.length) {
+        const produtoEscolhido = produtos[opcao - 1];
+        totalCompra += produtoEscolhido.preco;
+        quantidadeItens++;
+        alert(`${produtoEscolhido.nome} adicionado ao carrinho.`);
+    } else if (opcao !== 0) {
+        alert("Opção inválida. Tente novamente.");
+    }
+} while (opcao !== 0);
+
+
+alert(`Total: R$ ${totalCompra.toFixed(2)}\nQuantidade de itens: ${quantidadeItens}`);
+
+</script>   

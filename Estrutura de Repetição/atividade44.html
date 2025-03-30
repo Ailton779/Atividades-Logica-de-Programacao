@@ -1,0 +1,33 @@
+<script>
+    let intervalo1 = 0;
+let intervalo2 = 0;
+let intervalo3 = 0;
+let intervalo4 = 0;
+
+let continuar = true;
+
+while (continuar) {
+    
+    let numero = parseInt(prompt("Digite um número (ou um número negativo para encerrar):"));
+    
+    
+    if (numero < 0) {
+        continuar = false;
+    } else if (numero >= 0 && numero <= 25) {
+        intervalo1++;
+    } else if (numero >= 26 && numero <= 50) {
+        intervalo2++;
+    } else if (numero >= 51 && numero <= 75) {
+        intervalo3++;
+    } else if (numero >= 76 && numero <= 100) {
+        intervalo4++;
+    }
+}
+
+
+alert(`Quantidade de números no intervalo [0-25]: ${intervalo1}`);
+alert(`Quantidade de números no intervalo [26-50]: ${intervalo2}`);
+alert(`Quantidade de números no intervalo [51-75]: ${intervalo3}`);
+alert(`Quantidade de números no intervalo [76-100]: ${intervalo4}`);
+
+</script>

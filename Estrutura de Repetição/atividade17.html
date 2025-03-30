@@ -1,0 +1,19 @@
+<script>
+    let maior = -Infinity; 
+let menor = Infinity;  
+
+for (let i = 1; i <= 50; i++) {
+    let numero = parseInt(prompt(`Digite o ${i}º valor:`));
+
+    if (numero > maior) {
+        maior = numero; 
+    }
+    if (numero < menor) {
+        menor = numero; 
+    }
+}
+
+alert(`O maior valor é: ${maior}`);
+alert(`O menor valor é: ${menor}`);
+
+</script>

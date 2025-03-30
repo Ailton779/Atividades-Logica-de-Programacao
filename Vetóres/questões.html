@@ -1,0 +1,387 @@
+<script>
+    // 1 - Exibir apenas números positivos de um vetor de 50 posições
+function exibirPositivos(vetor) {
+    return vetor.filter(num => num > 0);
+ }
+
+// 2 - Exibir apenas números ímpares de um vetor de 5 posições
+function exibirImpares(vetor) {
+    return vetor.filter(num => num % 2 !== 0);
+}
+
+// 3 - Somar todos os elementos de um vetor de 5 posições
+function somaVetor(vetor) {
+    return vetor.reduce((soma, num) => soma + num, 0);
+}
+
+// 4 - Criar um vetor com os números de 1 a 7 e exibi-los
+function vetorCrescente() {
+    return [1, 2, 3, 4, 5, 6, 7];
+}
+
+// 5 - Calcular a média de um vetor de 4 números reais
+function mediaVetor(vetor) {
+    return somaVetor(vetor) / vetor.length;
+}
+
+// 6 - Criar um vetor com vogais e exibi-las
+function vogais() {
+    return ['A', 'E', 'I', 'O', 'U'];
+}
+
+// 7 - Exibir apenas números pares de um vetor de 6 posições
+function exibirPares(vetor) {
+    return vetor.filter(num => num % 2 === 0);
+}
+
+// 8 - Encontrar o menor número em um vetor de 5 posições
+function menorElemento(vetor) {
+    return Math.min(...vetor);
+}
+
+// 9 - Criar um vetor com as letras do nome e exibi-las
+function nomeParaVetor(nome) {
+    return nome.split('');
+}
+
+// 10 - Criar um vetor com os números de 1 a 7 e exibi-los em ordem inversa
+function vetorInverso() {
+    return [1, 2, 3, 4, 5, 6, 7].reverse();
+}
+
+// 11 - Somar elementos de índices pares em um vetor de 6 posições
+function somaIndicesPares(vetor) {
+    return vetor.reduce((soma, num, index) => index % 2 === 0 ? soma + num : soma, 0);
+}
+
+// 12 - Encontrar o maior número em um vetor de 5 posições
+function maiorElemento(vetor) {
+    return Math.max(...vetor);
+}
+
+// 13 - Calcular a média de um vetor de 6 números reais
+function mediaNumerosReais(vetor) {
+    return somaVetor(vetor) / vetor.length;
+}
+
+// 14 - Criar um vetor com consoantes e exibi-las
+function consoantes() {
+    return ['B', 'C', 'D', 'F', 'G', 'H', 'J'];
+}
+
+// 15 - Criar um vetor de 6 números decrescentes e exibir os divisíveis por 3
+function divisiveisPor3() {
+    return [6, 5, 4, 3, 2, 1].filter(num => num % 3 === 0);
+}
+
+// 16 - Encontrar o índice do primeiro número negativo em um vetor de 8 posições
+function indicePrimeiroNegativo(vetor) {
+    return vetor.findIndex(num => num < 0);
+}
+
+// 17 - Somar elementos de índices ímpares em um vetor de 7 posições
+function somaIndicesImpares(vetor) {
+    return vetor.reduce((soma, num, index) => index % 2 !== 0 ? soma + num : soma, 0);
+}
+
+// 18 - Contar e exibir números pares e ímpares em um vetor de 6 posições
+function contarParesImpares(vetor) {
+    let pares = vetor.filter(num => num % 2 === 0);
+    let impares = vetor.filter(num => num % 2 !== 0);
+    return { pares, qtdPares: pares.length, impares, qtdImpares: impares.length };
+}
+
+// 19 - Substituir valores nulos por 1 em um vetor de 30 posições
+function substituirNulos(vetor) {
+    return vetor.map(num => num === 0 ? 1 : num);
+}
+
+// Continuação das questões de 1 a 34
+
+// 1 - Analisar pares e ímpares em um vetor de 6 posições
+function analisarParesImpares(vetor) {
+    let pares = vetor.filter(num => num % 2 === 0);
+    let impares = vetor.filter(num => num % 2 !== 0);
+    return {
+        quantidadePares: pares.length,
+        numerosPares: pares,
+        quantidadeImpares: impares.length,
+        numerosImpares: impares
+    };
+}
+
+// 2 - Encontrar múltiplos de 2 e 3 em um vetor de 7 posições
+function encontrarMultiplos(vetor) {
+    let multiplosDe2 = vetor.filter(num => num % 2 === 0);
+    let multiplosDe3 = vetor.filter(num => num % 3 === 0);
+    let multiplosDeAmbos = vetor.filter(num => num % 2 === 0 && num % 3 === 0);
+    return { multiplosDe2, multiplosDe3, multiplosDeAmbos };
+}
+
+// 3 - Verificar existência de elementos iguais a 30 em um vetor de 15 posições
+function verificarExistencia30(vetor) {
+    let indices = [];
+    vetor.forEach((num, index) => {
+        if (num === 30) indices.push(index);
+    });
+    return indices.length > 0 ? indices : "Nenhum número 30 encontrado";
+}
+
+// 4 - Separar números pares e ímpares de um vetor de 10 posições
+function separarParesImpares(vetor) {
+    return {
+        pares: vetor.filter(num => num % 2 === 0),
+        impares: vetor.filter(num => num % 2 !== 0)
+    };
+}
+
+// 5 - Calcular locações grátis para clientes com base em locações feitas
+function calcularLocacoesGratis(clientes, locacoes) {
+    return clientes.map((cliente, index) => ({
+        nome: cliente,
+        locacoesGratis: Math.floor(locacoes[index] / 10)
+    }));
+}
+
+// 6 - Subtrair elementos do vetor A dos elementos do vetor B em ordem inversa
+function subtrairVetores(vetorA, vetorB) {
+    let resultado = 0;
+    for (let i = 0; i < vetorA.length; i++) {
+        resultado += vetorA[i] - vetorB[vetorB.length - 1 - i];
+    }
+    return resultado;
+}
+
+// 7 - Dividir elementos de um vetor pelo maior valor encontrado
+function dividirPorMaior(vetor) {
+    let maior = Math.max(...vetor);
+    return vetor.map(num => num / maior);
+}
+
+// 8 - Analisar preços de produtos
+function analisarPrecos(produtos, precos) {
+    let baratos = produtos.filter((_, i) => precos[i] < 50);
+    let medianos = produtos.filter((_, i) => precos[i] >= 50 && precos[i] <= 100);
+    let caros = precos.filter(preco => preco > 100);
+    let mediaCaros = caros.length ? caros.reduce((soma, preco) => soma + preco, 0) / caros.length : 0;
+    return { baratos, medianos, mediaCaros };
+}
+
+// 9 - Relatório de notas de alunos
+function relatorioNotas(alunos, notas) {
+    let mediaClasse = notas.reduce((soma, nota) => soma + nota, 0) / notas.length;
+    let aprovados = notas.filter(nota => nota >= 7).length;
+    let exames = notas.filter(nota => nota >= 3 && nota < 7).length;
+    let reprovados = notas.filter(nota => nota < 3).length;
+    return { mediaClasse, aprovados, exames, reprovados };
+}
+
+// 10 - Separar números negativos e somar positivos em um vetor de 10 posições
+function separarNegativosSomarPositivos(vetor) {
+    let negativos = vetor.filter(num => num < 0).length;
+    let somaPositivos = vetor.filter(num => num > 0).reduce((soma, num) => soma + num, 0);
+    return { negativos, somaPositivos };
+}
+
+// 11 - Encontrar aluno com maior média
+function alunoMaiorMedia(alunos, medias) {
+    let maiorIndice = medias.indexOf(Math.max(...medias));
+    return alunos[maiorIndice];
+}
+
+// 12 - Atualizar preços de produtos conforme critérios
+function atualizarPrecos(produtos, codigos, precos) {
+    return produtos.map((produto, i) => {
+        let aumento = 0;
+        if (codigos[i] % 2 === 0) aumento += 0.15;
+        if (precos[i] > 1000) aumento += 0.10;
+        if (aumento > 0) precos[i] *= (1 + aumento);
+        return { produto, codigo: codigos[i], preco: precos[i] };
+    });
+}
+
+// 13 - Calcular nota necessária para aprovação no exame
+function notaParaAprovacao(notaAtual) {
+    return notaAtual < 7 ? Math.max(0, 10 - notaAtual) : 0;
+}
+
+// 14 - Encontrar alunos matriculados em ambas as disciplinas
+function alunosEmAmbas(logica, linguagem) {
+    return logica.filter(matricula => linguagem.includes(matricula));
+}
+
+// 15 - Calcular comissão de vendedores
+function calcularComissao(vendedores, vendas, comissoes) {
+    return vendedores.map((vendedor, i) => ({
+        vendedor,
+        valorReceber: vendas[i] * (comissoes[i] / 100)
+    }));
+}
+
+// 16 - Ordenar dois vetores e mesclá-los de forma decrescente
+function mesclarVetoresDecrescente(vetorA, vetorB) {
+    return [...vetorA, ...vetorB].sort((a, b) => b - a);
+}
+
+// 17 - Encontrar maior e menor elemento em um vetor de 15 posições
+function encontrarMaiorMenor(vetor) {
+    let maior = Math.max(...vetor);
+    let menor = Math.min(...vetor);
+    return { maior, menor };
+}
+
+// 18 - Multiplicar elementos de dois vetores de mesmo tamanho
+function multiplicarVetores(vetorA, vetorB) {
+    return vetorA.map((num, i) => num * vetorB[i]);
+}
+
+//Divisão das questões.
+
+// 1 - Analisar pares e ímpares em um vetor de 6 posições
+function analisarParesImpares(vetor) {
+    let pares = vetor.filter(num => num % 2 === 0);
+    let impares = vetor.filter(num => num % 2 !== 0);
+    return {
+        quantidadePares: pares.length,
+        numerosPares: pares,
+        quantidadeImpares: impares.length,
+        numerosImpares: impares
+    };
+}
+
+// 2 - Encontrar múltiplos de 2 e 3 em um vetor de 7 posições
+function encontrarMultiplos(vetor) {
+    let multiplosDe2 = vetor.filter(num => num % 2 === 0);
+    let multiplosDe3 = vetor.filter(num => num % 3 === 0);
+    let multiplosDeAmbos = vetor.filter(num => num % 2 === 0 && num % 3 === 0);
+    return { multiplosDe2, multiplosDe3, multiplosDeAmbos };
+}
+
+// 3 - Verificar existência de elementos iguais a 30 em um vetor de 15 posições
+function verificarExistencia30(vetor) {
+    let indices = [];
+    vetor.forEach((num, index) => {
+        if (num === 30) indices.push(index);
+    });
+    return indices.length > 0 ? indices : "Nenhum número 30 encontrado";
+}
+
+// 4 - Separar números pares e ímpares de um vetor de 10 posições
+function separarParesImpares(vetor) {
+    return {
+        pares: vetor.filter(num => num % 2 === 0),
+        impares: vetor.filter(num => num % 2 !== 0)
+    };
+}
+
+// 5 - Calcular locações grátis para clientes com base em locações feitas
+function calcularLocacoesGratis(clientes, locacoes) {
+    return clientes.map((cliente, index) => ({
+        nome: cliente,
+        locacoesGratis: Math.floor(locacoes[index] / 10)
+    }));
+}
+
+// 6 - Subtrair elementos do vetor A dos elementos do vetor B em ordem inversa
+function subtrairVetores(vetorA, vetorB) {
+    let resultado = 0;
+    for (let i = 0; i < vetorA.length; i++) {
+        resultado += vetorA[i] - vetorB[vetorB.length - 1 - i];
+    }
+    return resultado;
+}
+
+// 7 - Dividir elementos de um vetor pelo maior valor encontrado
+function dividirPorMaior(vetor) {
+    let maior = Math.max(...vetor);
+    return vetor.map(num => num / maior);
+}
+
+// 8 - Analisar preços de produtos
+function analisarPrecos(produtos, precos) {
+    let baratos = produtos.filter((_, i) => precos[i] < 50);
+    let medianos = produtos.filter((_, i) => precos[i] >= 50 && precos[i] <= 100);
+    let caros = precos.filter(preco => preco > 100);
+    let mediaCaros = caros.length ? caros.reduce((soma, preco) => soma + preco, 0) / caros.length : 0;
+    return { baratos, medianos, mediaCaros };
+}
+
+// 9 - Relatório de notas de alunos
+function relatorioNotas(alunos, notas) {
+    let mediaClasse = notas.reduce((soma, nota) => soma + nota, 0) / notas.length;
+    let aprovados = notas.filter(nota => nota >= 7).length;
+    let exames = notas.filter(nota => nota >= 3 && nota < 7).length;
+    let reprovados = notas.filter(nota => nota < 3).length;
+    return { mediaClasse, aprovados, exames, reprovados };
+}
+
+// 10 - Separar números negativos e somar positivos em um vetor de 10 posições
+function separarNegativosSomarPositivos(vetor) {
+    let negativos = vetor.filter(num => num < 0).length;
+    let somaPositivos = vetor.filter(num => num > 0).reduce((soma, num) => soma + num, 0);
+    return { negativos, somaPositivos };
+}
+
+// 11 - Encontrar aluno com maior média
+function alunoMaiorMedia(alunos, medias) {
+    let maiorIndice = medias.indexOf(Math.max(...medias));
+    return alunos[maiorIndice];
+}
+
+// 12 - Atualizar preços de produtos conforme critérios
+function atualizarPrecos(produtos, codigos, precos) {
+    return produtos.map((produto, i) => {
+        let aumento = 0;
+        if (codigos[i] % 2 === 0) aumento += 0.15;
+        if (precos[i] > 1000) aumento += 0.10;
+        if (aumento > 0) precos[i] *= (1 + aumento);
+        return { produto, codigo: codigos[i], preco: precos[i] };
+    });
+}
+
+// Continuação das questões faltantes
+
+// 13 - Calcular nota necessária para aprovação no exame
+function notaParaAprovacao(notaAtual) {
+    return notaAtual < 7 ? Math.max(0, 10 - notaAtual) : 0;
+}
+
+// 14 - Encontrar alunos matriculados em ambas as disciplinas
+function alunosEmAmbas(logica, linguagem) {
+    return logica.filter(matricula => linguagem.includes(matricula));
+}
+
+// 31 - Criar relatório de vendedores com valores a receber
+function relatorioVendedores(vendedores, vendas, comissoes) {
+    let totalVendas = vendas.reduce((soma, venda) => soma + venda, 0);
+    let valores = vendedores.map((vendedor, i) => ({
+        vendedor,
+        valorReceber: vendas[i] * (comissoes[i] / 100)
+    }));
+    let maior = valores.reduce((max, v) => v.valorReceber > max.valorReceber ? v : max, valores[0]);
+    let menor = valores.reduce((min, v) => v.valorReceber < min.valorReceber ? v : min, valores[0]);
+    return { valores, totalVendas, maior, menor };
+}
+
+// 32 - Mesclar dois vetores e ordenar de forma decrescente
+function mesclarEOrdenarDecrescente(vetorA, vetorB) {
+    return [...vetorA, ...vetorB].sort((a, b) => b - a);
+}
+
+// 33 - Encontrar maior e menor elemento em um vetor e suas posições
+function encontrarMaiorMenorComPosicao(vetor) {
+    let maior = Math.max(...vetor);
+    let menor = Math.min(...vetor);
+    return {
+        maior, posicaoMaior: vetor.indexOf(maior),
+        menor, posicaoMenor: vetor.indexOf(menor)
+    };
+}
+
+// 34 - Multiplicar elementos de dois vetores de 10 posições
+function multiplicarVetores10(vetorA, vetorB) {
+    return vetorA.map((num, i) => num * vetorB[i]);
+}
+
+
+</script>

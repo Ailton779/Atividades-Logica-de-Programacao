@@ -1,0 +1,26 @@
+<script>
+while (true) {
+    
+    const codigoAluno = parseInt(prompt("Digite o código do aluno (ou 0 para encerrar):"));
+    
+    
+    if (codigoAluno === 0) {
+        alert("Encerrando o programa.");
+        break; 
+    }
+
+    let somaNotas = 0;
+
+    
+    for (let i = 1; i <= 3; i++) {
+        const nota = parseFloat(prompt(`Digite a nota ${i} do aluno ${codigoAluno}:`));
+        somaNotas += nota; 
+    }
+
+    
+    const media = somaNotas / 3;
+    alert(`A média do aluno com código ${codigoAluno} é: ${media.toFixed(2)}`);
+}
+
+
+</script>
