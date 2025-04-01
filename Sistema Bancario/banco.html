@@ -1,461 +1,541 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banco Digital Completo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco Digital Completo</title>
+  <style>
+    /* Estilização geral */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
 
-        body {
-            background: linear-gradient(135deg, #1a237e, #0d47a1);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    body {
+      background: linear-gradient(135deg, #1a237e, #0d47a1);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .container {
-            background: rgba(255, 255, 255, 0.97);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            width: 100%;
-            max-width: 500px;
-            padding: 30px;
-            margin: 20px;
-        }
+    .container {
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+      margin: 20px;
+    }
 
-        .tela {
-            display: none;
-        }
+    .tela {
+      display: none;
+    }
 
-        .ativa {
-            display: block;
-        }
+    .ativa {
+      display: block;
+    }
 
-        h2 {
-            color: #1a237e;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8em;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #1a237e;
-        }
+    h2 {
+      color: #1a237e;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8em;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #1a237e;
+    }
 
-        .input-group {
-            margin-bottom: 20px;
-        }
+    .input-group {
+      margin-bottom: 20px;
+    }
 
-        input, select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
+    input, select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
 
-        input:focus, select:focus {
-            border-color: #1a237e;
-            box-shadow: 0 0 8px rgba(26, 35, 126, 0.2);
-            outline: none;
-        }
+    input:focus, select:focus {
+      border-color: #1a237e;
+      box-shadow: 0 0 8px rgba(26, 35, 126, 0.2);
+      outline: none;
+    }
 
-        .btn {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 8px 0;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 8px 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        .btn-primary {
-            background: #1a237e;
-            color: white;
-        }
+    .btn-primary {
+      background: #1a237e;
+      color: white;
+    }
 
-        .btn-secondary {
-            background: #4CAF50;
-            color: white;
-        }
+    .btn-secondary {
+      background: #4CAF50;
+      color: white;
+    }
 
-        .btn-danger {
-            background: #d32f2f;
-            color: white;
-        }
+    .btn-danger {
+      background: #d32f2f;
+      color: white;
+    }
 
-        .btn-back {
-            background: #757de8;
-            color: white;
-        }
+    .btn-back {
+      background: #757de8;
+      color: white;
+    }
 
-        .btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
 
-        .contas-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+    .contas-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
 
-        .contas-table th,
-        .contas-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #f0f0f0;
-        }
+    .contas-table th,
+    .contas-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+    }
 
-        .contas-table th {
-            background: #1a237e;
-            color: white;
-        }
+    .contas-table th {
+      background: #1a237e;
+      color: white;
+    }
 
-        .contas-table tr:nth-child(even) {
-            background: #f8f9ff;
-        }
+    .contas-table tr:nth-child(even) {
+      background: #f8f9ff;
+    }
 
-        .alert {
-            padding: 12px;
-            border-radius: 8px;
-            margin: 15px 0;
-            text-align: center;
-            display: none;
-        }
+    .alert {
+      padding: 12px;
+      border-radius: 8px;
+      margin: 15px 0;
+      text-align: center;
+      display: none;
+    }
 
-        .alert-success {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
+    .alert-success {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
 
-        .alert-error {
-            background: #ffebee;
-            color: #d32f2f;
-        }
-    </style>
+    .alert-error {
+      background: #ffebee;
+      color: #d32f2f;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Tela de Login -->
-    <div class="container tela ativa" id="login">
-        <h2>🔒 Acesso ao Sistema</h2>
-        <div class="input-group">
-            <input type="text" id="usuario" placeholder="Usuário" autocomplete="off">
-        </div>
-        <div class="input-group">
-            <input type="password" id="senha" placeholder="Senha">
-        </div>
-        <button class="btn btn-primary" onclick="fazerLogin()">👉 Entrar</button>
+  <!-- Tela de Login -->
+  <div class="container tela ativa" id="login">
+    <h2>🔒 Acesso ao Sistema</h2>
+    <div class="input-group">
+      <input type="text" id="usuario" placeholder="Usuário" autocomplete="off">
     </div>
-
-    <!-- Menu Principal -->
-    <div class="container tela" id="menu">
-        <h2>🏦 Menu Bancário</h2>
-        <button class="btn btn-secondary" onclick="mostrarTela('criar')">📄 Nova Conta</button>
-        <button class="btn btn-secondary" onclick="mostrarTela('consultar')">🔍 Consultar</button>
-        <button class="btn btn-danger" onclick="mostrarTela('remover')">❌ Remover</button>
-        <button class="btn btn-secondary" onclick="mostrarTela('creditar')">💵 Creditar</button>
-        <button class="btn btn-secondary" onclick="mostrarTela('debitar')">💸 Debitar</button>
-        <button class="btn btn-secondary" onclick="mostrarTela('juros')">📈 Juros</button>
-        <button class="btn btn-secondary" onclick="mostrarTela('transferir')">🔄 Transferir</button>
-        <button class="btn btn-secondary" onclick="mostrarTela('listar')">📋 Listar</button>
-        <button class="btn btn-primary" onclick="sair()">🚪 Sair</button>
+    <div class="input-group">
+      <input type="password" id="senha" placeholder="Senha">
     </div>
+    <button class="btn btn-primary" onclick="fazerLogin()">👉 Entrar</button>
+  </div>
 
-    <!-- Telas das Operações -->
-    <div class="container tela" id="criar">
-        <h2>✨ Nova Conta</h2>
-        <div class="input-group">
-            <input type="text" id="nome" placeholder="Nome Completo">
-        </div>
-        <div class="input-group">
-            <input type="text" id="cpf" placeholder="CPF (apenas números)">
-        </div>
-        <div class="input-group">
-            <input type="text" id="telefone" placeholder="Telefone">
-        </div>
-        <div class="input-group">
-            <select id="tipo">
-                <option value="corrente">🏦 Conta Corrente</option>
-                <option value="poupanca">💰 Poupança</option>
-            </select>
-        </div>
-        <button class="btn btn-secondary" onclick="criarConta()">Criar</button>
-        <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  <!-- Menu Principal -->
+  <div class="container tela" id="menu">
+    <h2>🏦 Menu Bancário</h2>
+    <button class="btn btn-secondary" onclick="mostrarTela('criar')">📄 Nova Conta</button>
+    <button class="btn btn-secondary" onclick="mostrarTela('consultar')">🔍 Consultar</button>
+    <button class="btn btn-danger" onclick="mostrarTela('remover')">❌ Remover</button>
+    <button class="btn btn-secondary" onclick="mostrarTela('creditar')">💵 Creditar</button>
+    <button class="btn btn-secondary" onclick="mostrarTela('debitar')">💸 Debitar</button>
+    <button class="btn btn-secondary" onclick="mostrarTela('juros')">📈 Juros</button>
+    <button class="btn btn-secondary" onclick="mostrarTela('transferir')">🔄 Transferir</button>
+    <button class="btn btn-secondary" onclick="mostrarTela('listar')">📋 Listar</button>
+    <button class="btn btn-primary" onclick="sair()">🚪 Sair</button>
+  </div>
+
+  <!-- Tela de Criação de Conta -->
+  <div class="container tela" id="criar">
+    <h2>✨ Nova Conta</h2>
+    <div class="input-group">
+      <input type="text" id="nome" placeholder="Nome Completo">
     </div>
-
-    <div class="container tela" id="consultar">
-        <h2>🔍 Consultar Conta</h2>
-        <div class="input-group">
-            <input type="number" id="numConsulta" placeholder="Número da Conta">
-        </div>
-        <button class="btn btn-secondary" onclick="consultarConta()">Buscar</button>
-        <div id="detalhesConta" class="input-group"></div>
-        <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+    <div class="input-group">
+      <input type="text" id="cpf" placeholder="CPF (apenas números)">
     </div>
-
-    <div class="container tela" id="remover">
-        <h2>❌ Remover Conta</h2>
-        <div class="input-group">
-            <input type="number" id="numRemover" placeholder="Número da Conta">
-        </div>
-        <button class="btn btn-danger" onclick="confirmarExclusao()">Excluir</button>
-        <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+    <div class="input-group">
+      <input type="text" id="telefone" placeholder="Telefone">
     </div>
-
-    <div class="container tela" id="creditar">
-        <h2>💵 Creditar Valor</h2>
-        <div class="input-group">
-            <input type="number" id="contaCredito" placeholder="Número da Conta">
-        </div>
-        <div class="input-group">
-            <input type="number" id="valorCredito" placeholder="Valor (R$)">
-        </div>
-        <button class="btn btn-secondary" onclick="efetuarCredito()">Confirmar</button>
-        <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+    <div class="input-group">
+      <select id="tipo">
+        <option value="corrente">🏦 Conta Corrente</option>
+        <option value="poupanca">💰 Poupança</option>
+      </select>
     </div>
+    <button class="btn btn-secondary" onclick="criarConta()">Criar</button>
+    <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  </div>
 
-    <div class="container tela" id="debitar">
-        <h2>💸 Debitar Valor</h2>
-        <div class="input-group">
-            <input type="number" id="contaDebito" placeholder="Número da Conta">
-        </div>
-        <div class="input-group">
-            <input type="number" id="valorDebito" placeholder="Valor (R$)">
-        </div>
-        <button class="btn btn-secondary" onclick="efetuarDebito()">Confirmar</button>
-        <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  <!-- Tela de Consulta de Conta -->
+  <div class="container tela" id="consultar">
+    <h2>🔍 Consultar Conta</h2>
+    <div class="input-group">
+      <input type="number" id="numConsulta" placeholder="Número da Conta">
     </div>
+    <button class="btn btn-secondary" onclick="consultarConta()">Buscar</button>
+    <div id="detalhesConta" class="input-group"></div>
+    <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  </div>
 
-    <div class="container tela" id="juros">
-        <h2>📈 Render Juros</h2>
-        <div class="input-group">
-            <input type="number" id="contaJuros" placeholder="Número da Conta">
-        </div>
-        <div class="input-group">
-            <input type="number" id="taxaJuros" placeholder="Taxa de Juros (%)">
-        </div>
-        <button class="btn btn-secondary" onclick="aplicarJuros()">Calcular</button>
-        <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  <!-- Tela de Remoção de Conta -->
+  <div class="container tela" id="remover">
+    <h2>❌ Remover Conta</h2>
+    <div class="input-group">
+      <input type="number" id="numRemover" placeholder="Número da Conta">
     </div>
+    <button class="btn btn-danger" onclick="confirmarExclusao()">Excluir</button>
+    <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  </div>
 
-    <div class="container tela" id="transferir">
-        <h2>🔄 Transferir Valores</h2>
-        <div class="input-group">
-            <input type="number" id="contaOrigem" placeholder="Conta de Origem">
-        </div>
-        <div class="input-group">
-            <input type="number" id="contaDestino" placeholder="Conta de Destino">
-        </div>
-        <div class="input-group">
-            <input type="number" id="valorTransferencia" placeholder="Valor (R$)">
-        </div>
-        <button class="btn btn-secondary" onclick="efetuarTransferencia()">Transferir</button>
-        <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  <!-- Tela de Crédito -->
+  <div class="container tela" id="creditar">
+    <h2>💵 Creditar Valor</h2>
+    <div class="input-group">
+      <input type="number" id="contaCredito" placeholder="Número da Conta">
     </div>
-
-    <div class="container tela" id="listar">
-        <h2>📋 Contas Cadastradas</h2>
-        <div id="listaContas"></div>
-        <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+    <div class="input-group">
+      <input type="number" id="valorCredito" placeholder="Valor (R$)">
     </div>
+    <button class="btn btn-secondary" onclick="efetuarCredito()">Confirmar</button>
+    <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  </div>
 
-    <script>
-        // Sistema Bancário Completo
-        let contas = [];
-        let numeroConta = 1;
+  <!-- Tela de Débito -->
+  <div class="container tela" id="debitar">
+    <h2>💸 Debitar Valor</h2>
+    <div class="input-group">
+      <input type="number" id="contaDebito" placeholder="Número da Conta">
+    </div>
+    <div class="input-group">
+      <input type="number" id="valorDebito" placeholder="Valor (R$)">
+    </div>
+    <button class="btn btn-secondary" onclick="efetuarDebito()">Confirmar</button>
+    <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  </div>
 
-        function mostrarTela(id) {
-            document.querySelectorAll('.tela').forEach(t => t.classList.remove('ativa'));
-            document.getElementById(id).classList.add('ativa');
-            if(id === 'listar') listarContas();
+  <!-- Tela de Aplicação de Juros -->
+  <div class="container tela" id="juros">
+    <h2>📈 Render Juros</h2>
+    <div class="input-group">
+      <input type="number" id="contaJuros" placeholder="Número da Conta">
+    </div>
+    <div class="input-group">
+      <input type="number" id="taxaJuros" placeholder="Taxa de Juros (%)">
+    </div>
+    <button class="btn btn-secondary" onclick="aplicarJuros()">Calcular</button>
+    <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  </div>
+
+  <!-- Tela de Transferência -->
+  <div class="container tela" id="transferir">
+    <h2>🔄 Transferir Valores</h2>
+    <div class="input-group">
+      <input type="number" id="contaOrigem" placeholder="Conta de Origem">
+    </div>
+    <div class="input-group">
+      <input type="number" id="contaDestino" placeholder="Conta de Destino">
+    </div>
+    <div class="input-group">
+      <input type="number" id="valorTransferencia" placeholder="Valor (R$)">
+    </div>
+    <button class="btn btn-secondary" onclick="efetuarTransferencia()">Transferir</button>
+    <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  </div>
+
+  <!-- Tela de Listagem de Contas -->
+  <div class="container tela" id="listar">
+    <h2>📋 Contas Cadastradas</h2>
+    <div id="listaContas"></div>
+    <button class="btn btn-back" onclick="mostrarTela('menu')">↩ Voltar</button>
+  </div>
+
+  <script>
+    // Variáveis globais para armazenamento de contas e numeração sequencial
+    let contas = [];
+    let numeroConta = 1;
+
+    /**
+     * Função: mostrarTela
+     * Objetivo: Exibe a tela com o ID fornecido e oculta as demais telas.
+     * Se a tela exibida for a de listagem, atualiza a lista de contas.
+     * @param {string} id - ID da tela a ser exibida.
+     */
+    function mostrarTela(id) {
+      // Remove a classe 'ativa' de todas as telas
+      document.querySelectorAll('.tela').forEach(tela => tela.classList.remove('ativa'));
+      // Adiciona a classe 'ativa' à tela desejada
+      document.getElementById(id).classList.add('ativa');
+      // Se for a tela de listagem, atualiza a tabela de contas
+      if (id === 'listar') listarContas();
+    }
+
+    /**
+     * Função: fazerLogin
+     * Objetivo: Verifica se as credenciais de login são válidas (usuário 'admin' e senha '123').
+     * Se válidas, redireciona para o menu; caso contrário, exibe um alerta.
+     */
+    function fazerLogin() {
+      if (
+        document.getElementById('usuario').value === 'admin' && 
+        document.getElementById('senha').value === '123'
+      ) {
+        mostrarTela('menu');
+      } else {
+        alert('Credenciais inválidas!');
+      }
+    }
+
+    /**
+     * Função: criarConta
+     * Objetivo: Cria uma nova conta com os dados informados pelo usuário.
+     * Verifica se os campos obrigatórios foram preenchidos, atribui um número sequencial à conta,
+     * adiciona a conta ao vetor de contas e retorna para o menu.
+     */
+    function criarConta() {
+      try {
+        // Cria o objeto da nova conta com os dados do formulário
+        const novaConta = {
+          numero: numeroConta++,
+          tipo: document.getElementById('tipo').value,
+          saldo: 0,
+          titular: {
+            nome: document.getElementById('nome').value,
+            cpf: document.getElementById('cpf').value,
+            telefone: document.getElementById('telefone').value
+          }
+        };
+
+        // Valida os campos obrigatórios
+        if (!novaConta.titular.nome || !novaConta.titular.cpf) {
+          throw new Error('Preencha todos os campos obrigatórios');
         }
 
-        function fazerLogin() {
-            if(document.getElementById('usuario').value === 'admin' && 
-               document.getElementById('senha').value === '123') {
-                mostrarTela('menu');
-            } else {
-                alert('Credenciais inválidas!');
-            }
-        }
+        // Adiciona a nova conta ao vetor de contas
+        contas.push(novaConta);
+        alert(`Conta ${novaConta.numero} criada com sucesso!`);
+        mostrarTela('menu');
+      } catch (error) {
+        alert(error.message);
+      }
+    }
 
-        function criarConta() {
-            try {
-                const novaConta = {
-                    numero: numeroConta++,
-                    tipo: document.getElementById('tipo').value,
-                    saldo: 0,
-                    titular: {
-                        nome: document.getElementById('nome').value,
-                        cpf: document.getElementById('cpf').value,
-                        telefone: document.getElementById('telefone').value
-                    }
-                };
-                
-                if(!novaConta.titular.nome || !novaConta.titular.cpf) {
-                    throw new Error('Preencha todos os campos obrigatórios');
-                }
-                
-                contas.push(novaConta);
-                alert(`Conta ${novaConta.numero} criada com sucesso!`);
-                mostrarTela('menu');
-            } catch (error) {
-                alert(error.message);
-            }
-        }
+    /**
+     * Função: consultarConta
+     * Objetivo: Busca e exibe os detalhes de uma conta com base no número informado pelo usuário.
+     * Caso a conta não seja encontrada, um erro é lançado.
+     */
+    function consultarConta() {
+      try {
+        const numero = parseInt(document.getElementById('numConsulta').value);
+        const conta = encontrarConta(numero);
 
-        function consultarConta() {
-            try {
-                const numero = parseInt(document.getElementById('numConsulta').value);
-                const conta = encontrarConta(numero);
-                
-                document.getElementById('detalhesConta').innerHTML = `
-                    <div class="contas-table">
-                        <table>
-                            <tr><th>Número</th><td>${conta.numero}</td></tr>
-                            <tr><th>Tipo</th><td>${conta.tipo}</td></tr>
-                            <tr><th>Saldo</th><td>R$ ${conta.saldo.toFixed(2)}</td></tr>
-                            <tr><th>Titular</th><td>${conta.titular.nome}</td></tr>
-                            <tr><th>CPF</th><td>${conta.titular.cpf}</td></tr>
-                        </table>
-                    </div>
-                `;
-            } catch (error) {
-                alert(error.message);
-            }
-        }
+        // Exibe os detalhes da conta em uma tabela
+        document.getElementById('detalhesConta').innerHTML = `
+          <div class="contas-table">
+            <table>
+              <tr><th>Número</th><td>${conta.numero}</td></tr>
+              <tr><th>Tipo</th><td>${conta.tipo}</td></tr>
+              <tr><th>Saldo</th><td>R$ ${conta.saldo.toFixed(2)}</td></tr>
+              <tr><th>Titular</th><td>${conta.titular.nome}</td></tr>
+              <tr><th>CPF</th><td>${conta.titular.cpf}</td></tr>
+            </table>
+          </div>
+        `;
+      } catch (error) {
+        alert(error.message);
+      }
+    }
 
-        function confirmarExclusao() {
-            try {
-                const numero = parseInt(document.getElementById('numRemover').value);
-                contas = contas.filter(c => c.numero !== numero);
-                alert('Conta removida com sucesso!');
-                mostrarTela('menu');
-            } catch (error) {
-                alert('Erro ao remover conta: ' + error.message);
-            }
-        }
+    /**
+     * Função: confirmarExclusao
+     * Objetivo: Remove uma conta do vetor com base no número informado pelo usuário.
+     * Após a exclusão, exibe uma mensagem e retorna para o menu.
+     */
+    function confirmarExclusao() {
+      try {
+        const numero = parseInt(document.getElementById('numRemover').value);
+        contas = contas.filter(c => c.numero !== numero);
+        alert('Conta removida com sucesso!');
+        mostrarTela('menu');
+      } catch (error) {
+        alert('Erro ao remover conta: ' + error.message);
+      }
+    }
 
-        function efetuarCredito() {
-            try {
-                const numero = parseInt(document.getElementById('contaCredito').value);
-                const valor = parseFloat(document.getElementById('valorCredito').value);
-                const conta = encontrarConta(numero);
-                
-                conta.saldo += valor;
-                alert(`Crédito realizado! Novo saldo: R$ ${conta.saldo.toFixed(2)}`);
-                mostrarTela('menu');
-            } catch (error) {
-                alert(error.message);
-            }
-        }
+    /**
+     * Função: efetuarCredito
+     * Objetivo: Realiza o crédito de um valor na conta informada pelo usuário.
+     * Atualiza o saldo da conta e exibe uma mensagem com o novo saldo.
+     */
+    function efetuarCredito() {
+      try {
+        const numero = parseInt(document.getElementById('contaCredito').value);
+        const valor = parseFloat(document.getElementById('valorCredito').value);
+        const conta = encontrarConta(numero);
 
-        function efetuarDebito() {
-            try {
-                const numero = parseInt(document.getElementById('contaDebito').value);
-                const valor = parseFloat(document.getElementById('valorDebito').value);
-                const conta = encontrarConta(numero);
-                
-                if(conta.saldo < valor) throw new Error('Saldo insuficiente');
-                conta.saldo -= valor;
-                alert(`Débito realizado! Novo saldo: R$ ${conta.saldo.toFixed(2)}`);
-                mostrarTela('menu');
-            } catch (error) {
-                alert(error.message);
-            }
-        }
+        conta.saldo += valor;
+        alert(`Crédito realizado! Novo saldo: R$ ${conta.saldo.toFixed(2)}`);
+        mostrarTela('menu');
+      } catch (error) {
+        alert(error.message);
+      }
+    }
 
-        function aplicarJuros() {
-            try {
-                const numero = parseInt(document.getElementById('contaJuros').value);
-                const taxa = parseFloat(document.getElementById('taxaJuros').value);
-                const conta = encontrarConta(numero);
-                
-                if(conta.tipo !== 'poupanca') throw new Error('Apenas para contas poupança');
-                if(taxa <= 0) throw new Error('Taxa inválida');
-                
-                const juros = conta.saldo * (taxa / 100);
-                conta.saldo += juros;
-                alert(`Juros aplicados! Novo saldo: R$ ${conta.saldo.toFixed(2)}`);
-                mostrarTela('menu');
-            } catch (error) {
-                alert(error.message);
-            }
-        }
+    /**
+     * Função: efetuarDebito
+     * Objetivo: Realiza o débito de um valor na conta informada, verificando se há saldo suficiente.
+     * Atualiza o saldo e exibe uma mensagem com o novo valor.
+     */
+    function efetuarDebito() {
+      try {
+        const numero = parseInt(document.getElementById('contaDebito').value);
+        const valor = parseFloat(document.getElementById('valorDebito').value);
+        const conta = encontrarConta(numero);
 
-        function efetuarTransferencia() {
-            try {
-                const origem = parseInt(document.getElementById('contaOrigem').value);
-                const destino = parseInt(document.getElementById('contaDestino').value);
-                const valor = parseFloat(document.getElementById('valorTransferencia').value);
-                
-                const contaOrigem = encontrarConta(origem);
-                const contaDestino = encontrarConta(destino);
-                
-                if(contaOrigem.saldo < valor) throw new Error('Saldo insuficiente');
-                
-                contaOrigem.saldo -= valor;
-                contaDestino.saldo += valor;
-                alert(`Transferência de R$ ${valor.toFixed(2)} realizada com sucesso!`);
-                mostrarTela('menu');
-            } catch (error) {
-                alert(error.message);
-            }
-        }
+        if (conta.saldo < valor) throw new Error('Saldo insuficiente');
+        conta.saldo -= valor;
+        alert(`Débito realizado! Novo saldo: R$ ${conta.saldo.toFixed(2)}`);
+        mostrarTela('menu');
+      } catch (error) {
+        alert(error.message);
+      }
+    }
 
-        function listarContas() {
-            const divLista = document.getElementById('listaContas');
-            divLista.innerHTML = '';
-            
-            if(contas.length === 0) {
-                divLista.innerHTML = '<p>Nenhuma conta cadastrada</p>';
-                return;
-            }
-            
-            let html = '<table class="contas-table"><tr><th>Número</th><th>Titular</th><th>Tipo</th><th>Saldo</th></tr>';
-            contas.forEach(conta => {
-                html += `
-                    <tr>
-                        <td>${conta.numero}</td>
-                        <td>${conta.titular.nome}</td>
-                        <td>${conta.tipo}</td>
-                        <td>R$ ${conta.saldo.toFixed(2)}</td>
-                    </tr>
-                `;
-            });
-            html += '</table>';
-            divLista.innerHTML = html;
-        }
+    /**
+     * Função: aplicarJuros
+     * Objetivo: Aplica juros à conta informada, somente se for do tipo 'poupanca'.
+     * Calcula os juros com base na taxa informada e atualiza o saldo da conta.
+     */
+    function aplicarJuros() {
+      try {
+        const numero = parseInt(document.getElementById('contaJuros').value);
+        const taxa = parseFloat(document.getElementById('taxaJuros').value);
+        const conta = encontrarConta(numero);
 
-        function sair() {
-            contas = [];
-            numeroConta = 1;
-            mostrarTela('login');
-        }
+        if (conta.tipo !== 'poupanca') throw new Error('Apenas para contas poupança');
+        if (taxa <= 0) throw new Error('Taxa inválida');
 
-        // Função auxiliar
-        function encontrarConta(numero) {
-            const conta = contas.find(c => c.numero === numero);
-            if(!conta) throw new Error('Conta não encontrada');
-            return conta;
-        }
-    </script>
+        const juros = conta.saldo * (taxa / 100);
+        conta.saldo += juros;
+        alert(`Juros aplicados! Novo saldo: R$ ${conta.saldo.toFixed(2)}`);
+        mostrarTela('menu');
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+
+    /**
+     * Função: efetuarTransferencia
+     * Objetivo: Realiza a transferência de um valor entre duas contas.
+     * Verifica se a conta de origem possui saldo suficiente antes de transferir o valor.
+     */
+    function efetuarTransferencia() {
+      try {
+        const origem = parseInt(document.getElementById('contaOrigem').value);
+        const destino = parseInt(document.getElementById('contaDestino').value);
+        const valor = parseFloat(document.getElementById('valorTransferencia').value);
+
+        const contaOrigem = encontrarConta(origem);
+        const contaDestino = encontrarConta(destino);
+
+        if (contaOrigem.saldo < valor) throw new Error('Saldo insuficiente');
+
+        contaOrigem.saldo -= valor;
+        contaDestino.saldo += valor;
+        alert(`Transferência de R$ ${valor.toFixed(2)} realizada com sucesso!`);
+        mostrarTela('menu');
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+
+    /**
+     * Função: listarContas
+     * Objetivo: Exibe todas as contas cadastradas em uma tabela, listando número, titular, tipo e saldo.
+     */
+    function listarContas() {
+      const divLista = document.getElementById('listaContas');
+      divLista.innerHTML = '';
+
+      if (contas.length === 0) {
+        divLista.innerHTML = '<p>Nenhuma conta cadastrada</p>';
+        return;
+      }
+
+      let html = '<table class="contas-table"><tr><th>Número</th><th>Titular</th><th>Tipo</th><th>Saldo</th></tr>';
+      contas.forEach(conta => {
+        html += `
+          <tr>
+            <td>${conta.numero}</td>
+            <td>${conta.titular.nome}</td>
+            <td>${conta.tipo}</td>
+            <td>R$ ${conta.saldo.toFixed(2)}</td>
+          </tr>
+        `;
+      });
+      html += '</table>';
+      divLista.innerHTML = html;
+    }
+
+    /**
+     * Função: sair
+     * Objetivo: Reinicia o sistema, limpando as contas cadastradas e reiniciando a numeração,
+     * retornando o usuário à tela de login.
+     */
+    function sair() {
+      contas = [];
+      numeroConta = 1;
+      mostrarTela('login');
+    }
+
+    /**
+     * Função auxiliar: encontrarConta
+     * Objetivo: Procura uma conta pelo número fornecido.
+     * @param {number} numero - Número da conta a ser encontrada.
+     * @returns {object} - Objeto da conta encontrada.
+     * Lança um erro se a conta não for encontrada.
+     */
+    function encontrarConta(numero) {
+      const conta = contas.find(c => c.numero === numero);
+      if (!conta) throw new Error('Conta não encontrada');
+      return conta;
+    }
+    // Feito por Ailton :)
+  </script>
 </body>
 </html>
